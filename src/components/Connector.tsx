@@ -73,7 +73,7 @@ export function Connector () : ReactElement {
             </div>
             <div className="category">
               <span>Balance</span>
-              <span>{balance} ETH </span>
+              <span>{balance ? balance : "0"} ETH </span>
             </div>
           </div>
           <div>
