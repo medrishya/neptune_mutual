@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { Main } from './components';
+
+import { Web3ReactProvider } from '@web3-react/core'
+import Web3 from 'web3'
+import { ReactElement } from 'react';
+
+function getLibrary(provider:any) {
+  return new Web3(provider)
+}
+
+function App() : ReactElement {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <div className="App">
+        <Main />
+      </div>
+    </Web3ReactProvider>
   );
 }
 
 export default App;
+

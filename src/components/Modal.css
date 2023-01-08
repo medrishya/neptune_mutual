@@ -1,0 +1,63 @@
+
+.modaloverlay {
+  background: rgba(0,0,0,0.5);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  display: none;
+  animation-name: enlargement;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes enlargement {
+  from {transform: scale(1.2,1.2);}
+  to {transform: scale(1.0,1.0);}
+}
+.modaloverlay:target {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 99999;
+}
+.modaloverlay .modal {
+  background-color: var(--white);
+  position: relative;
+  margin: 15% auto;
+  width: 50%;
+  border-radius: 1em;
+  padding: calc(var(--default-padding)*4);
+  -webkit-transition: all 1000ms ease-in-out;
+  -moz-transition: all 1000ms ease-in-out;
+  transition: all 1000ms ease-in-out;
+}
+@media (max-width: 60em) {
+  .modaloverlay .modal {
+    margin: 30% auto;
+    overflow-y: auto;
+  }
+}
+.modaloverlay .modal > iframe, .modaloverlay .modal > div {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+.modaloverlay .close {
+  background-color: var(--main-color);
+  color: var(--white);
+  font-size: calc(var(--default-font-size));
+  padding: var(--default-padding) calc(var(--default-padding)*2) ;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-decoration: none;
+  top: 0;
+  z-index: 1;
+  border-radius: 3px;
+  border-top-right-radius: 0.5em;
+}
